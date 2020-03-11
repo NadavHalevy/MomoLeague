@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "249784691818",
+    "firebase_url": "https://momoleague-271b3.firebaseio.com",
+    "project_id": "momoleague-271b3",
+    "storage_bucket": "momoleague-271b3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:249784691818:android:5bb8ac69b5d2e88ece6e13",
+        "android_client_info": {
+          "package_name": "com.example.momoleague"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "249784691818-tgjbvc5g5m8pgauei8eov30faarmvsck.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.momoleague",
+            "certificate_hash": "8eaced097c29b12d36f7045dfb46647cb732d05a"
+          }
+        },
+        {
+          "client_id": "249784691818-555p4ttub1ukqt3hkf65j34j1nlhc94c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYcTiVpZEWPipSNbz9meCQnzTlNYBDA1M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "249784691818-555p4ttub1ukqt3hkf65j34j1nlhc94c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
