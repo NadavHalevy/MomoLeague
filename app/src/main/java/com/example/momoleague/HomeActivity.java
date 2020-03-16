@@ -1,7 +1,6 @@
  package com.example.momoleague;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Bundle;
@@ -11,20 +10,12 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.TableRow;
-
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.util.ArrayList;
-
  public class HomeActivity extends AppCompatActivity {
 
-    Button btnLogOut, tableBtn, weekGuessBtn, listGamesBtn, makeListBtn, updateGuesses;
-    FirebaseAuth mFirebaseAuth;
-    private FirebaseAuth.AuthStateListener mAuthStateListener;
-    private FirebaseDatabase database;
-
+    Button btnLogOut, tableBtn, weekGuessBtn, makeListBtn, updateGuesses;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,7 +29,6 @@ import java.util.ArrayList;
         webView.loadUrl("https://www.sport5.co.il");
         tableBtn = findViewById(R.id.tableBut);
         weekGuessBtn = findViewById(R.id.weekGuess);
-        listGamesBtn = findViewById(R.id.listGames);
         makeListBtn = findViewById(R.id.makeList);
         btnLogOut = findViewById(R.id.logOut);
         updateGuesses = findViewById(R.id.updateGuesses);
@@ -68,15 +58,6 @@ import java.util.ArrayList;
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(HomeActivity.this, WeekGuessActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
-        listGamesBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(HomeActivity.this, UpdateGamesActivity.class);
                 startActivity(intent);
                 finish();
             }

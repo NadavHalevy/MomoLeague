@@ -56,7 +56,7 @@ public class TableActivity extends AppCompatActivity {
                                 return;
                             ListItem item = new ListItem(row.correct,row.games,email);
                             items.add(item);
-                            Collections.sort(items, (o1, o2) -> o1.getPoints() - o2.getPoints());
+                            Collections.sort(items, (o1, o2) -> o2.getPoints() - o1.getPoints());
                             listView.setAdapter(new MyArrayAdapter(getApplicationContext(),R.layout.list_item,items));
                         }
 
