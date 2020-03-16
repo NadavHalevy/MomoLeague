@@ -18,9 +18,17 @@
         android:textColor="#000000"
         android:textStyle="bold"
         android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true"
-        />
+        android:layout_centerHorizontal="true"/>
 
+    <RelativeLayout
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:layout_centerInParent="true">
+        <LinearLayout
+            android:id="@+id/table_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
     <TextView
         android:id="@+id/line1"
         style="@style/TextAppearance.AppCompat.Body2"
@@ -31,8 +39,6 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="20dp"
         />
 
     <TextView
@@ -45,8 +51,8 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="210dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/line1"
         />
 
     <TextView
@@ -59,8 +65,8 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="270dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/line2"
         />
 
     <TextView
@@ -73,10 +79,16 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="330dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/line3"
         />
-
+        </LinearLayout>
+<LinearLayout
+    android:layout_marginStart="40dp"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_toEndOf="@id/table_left"
+    android:orientation="vertical">
     <TextView
         android:id="@+id/line5"
         style="@style/TextAppearance.AppCompat.Body2"
@@ -87,8 +99,6 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="150dp"
-        android:layout_marginLeft="250dp"
         />
 
     <TextView
@@ -101,8 +111,7 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="210dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginTop="10dp"
         />
 
     <TextView
@@ -115,8 +124,7 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="270dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginTop="10dp"
         />
 
     <TextView
@@ -129,11 +137,10 @@
         android:textSize="20dp"
         android:textColor="#000000"
         android:textStyle="bold"
-        android:layout_marginTop="330dp"
-        android:layout_marginLeft="250dp"
+        android:layout_marginTop="10dp"
         />
-
-
+</LinearLayout>
+    </RelativeLayout>
 
     <Button
         android:id="@+id/backBtn"
@@ -148,7 +155,6 @@
         android:backgroundTint="@android:color/white"
         />
 
-    />
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
@@ -156,5 +162,15 @@
         app:srcCompat="@drawable/icon"
         android:layout_marginTop="250dp"
         android:layout_marginLeft="562dp" />
+
+    <Button
+        android:id="@+id/done_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="60dp"
+        android:visibility="gone"/>
 
 </RelativeLayout>

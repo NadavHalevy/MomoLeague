@@ -16,6 +16,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -43,9 +47,27 @@ public class LoginActivity extends AppCompatActivity {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
                 if( mFirebaseUser != null){
                     MyApp.setUid(mFirebaseUser.getUid());
-                    Toast.makeText(LoginActivity.this,"You are logged in", Toast.LENGTH_SHORT).show();
-                    Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(intent);
+                    FirebaseDatabase.getInstance().getReference().child("admins").child(MyApp.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                        @Override
+                        public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                            boolean isAdmin = false;
+                            if(dataSnapshot.exists()){
+                                Boolean b = (Boolean)dataSnapshot.getValue();
+                                if(b != null)
+                                    isAdmin = b;
+                            }
+                            MyApp.setIsAdmin(isAdmin);
+                            FirebaseDatabase.getInstance().getReference().child("emails").child(MyApp.getUid()).setValue(mFirebaseUser.getEmail());
+                            Toast.makeText(LoginActivity.this,"You are logged in", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                            startActivity(intent);
+                        }
+
+                        @Override
+                        public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                        }
+                    });
                 }else{
                     Toast.makeText(LoginActivity.this,"Please Login", Toast.LENGTH_SHORT).show();
                 }
@@ -74,8 +96,27 @@ public class LoginActivity extends AppCompatActivity {
                             if(!task.isSuccessful()){
                                 Toast.makeText(LoginActivity.this, "Login Error, Please Login Again", Toast.LENGTH_SHORT).show();
                             }else {
-                                Intent intToHome = new Intent(LoginActivity.this, HomeActivity.class);
-                                startActivity(intToHome);
+                                FirebaseDatabase.getInstance().getReference().child("admins").child(MyApp.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
+                                    @Override
+                                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                                        boolean isAdmin = false;
+                                        if(dataSnapshot.exists()){
+                                            Boolean b = (Boolean)dataSnapshot.getValue();
+                                            if(b != null)
+                                                isAdmin = b;
+                                        }
+                                        MyApp.setIsAdmin(isAdmin);
+                                        FirebaseDatabase.getInstance().getReference().child("emails").child(MyApp.getUid()).setValue(email);
+                                        Toast.makeText(LoginActivity.this,"You are logged in", Toast.LENGTH_SHORT).show();
+                                        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+                                        startActivity(intent);
+                                    }
+
+                                    @Override
+                                    public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                                    }
+                                });
                             }
                         }
                     });

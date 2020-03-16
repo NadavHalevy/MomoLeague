@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.momoleague">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MyApp"
         android:allowBackup="true"
@@ -12,7 +14,7 @@
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity android:name=".MakeListActivity"
             android:screenOrientation="landscape"/>
-        <activity android:name=".ListGamesActivity"
+        <activity android:name=".UpdateGamesActivity"
             android:screenOrientation="landscape" />
         <activity android:name=".WeekGuessActivity"
             android:screenOrientation="landscape" />
